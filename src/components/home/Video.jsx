@@ -1,0 +1,31 @@
+import React from 'react';
+
+const Video = ({ rounded = false }) => {
+    return (
+        <div className="h-full w-full">
+            <video
+                className={`h-full w-full object-cover ${rounded ? "rounded-full" : ""}`}
+                autoPlay
+                muted
+                loop
+                playsInline
+                src="../../public/homebgvideo/HomeBgVideo.mp4"
+            />
+        </div>
+    );
+};
+
+export default Video;
+
+
+// import React from 'react';
+
+// const Video = () => {
+//     return (
+//         <div className='h-full w-full'>
+//             <video className='h-full w-full object-cover' autoPlay muted loop src="https://player.vimeo.com/progressive_redirect/playback/1119600858/rendition/1080p/file.mp4?loc=external&amp;log_user=0&amp;signature=c4a137161d6ce80a52c50c7ee23d4fdf8df103bfc816252fc304e317a43bacc6"></video>
+//         </div>
+//     );
+// };
+
+// export default Video;
