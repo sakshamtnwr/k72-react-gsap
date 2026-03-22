@@ -45,7 +45,7 @@ useEffect(() => {
 
     return (
         <div>
-            <div ref={bgChangeRef} id='outterdiv'>
+            <div ref={bgChangeRef} id='outterdiv' className='flex flex-col gap-5'>
                     <div id='textcomponent' className='panel h-screen overflow-hidden relative'>
                         <div id='hovering text' className='absolute top-20 flex gap-80 overflow-hidden z-10'>
                             <h1 className='moveY uppercase font-[font2] text-amber-300 text-[10vw]'>meggie</h1>
@@ -68,7 +68,7 @@ useEffect(() => {
                             </div>
                         </div>
                         <div id='photo' className='relative flex justify-center h-[50vw] z-20'>
-                            <img className='rounded-3xl' src="../../../public/images/MEGGIE showcase.jpg" alt="" />
+                            <img className='rounded-3xl' src="https://k72.ca/images/teamMembers/MEGGIE_480X640_2.jpg?w=480&h=640&fit=crop&s=3604b19f8fc7b40f517954147698d847" alt="" />
                         </div>
                     </div>
                     <div id='textcomponent' className='panel h-screen overflow-hidden relative'>
@@ -93,7 +93,7 @@ useEffect(() => {
                             </div>
                         </div>
                         <div id='photo' className='relative flex justify-center h-[50vw] z-20'>
-                            <img className='rounded-3xl' src="../../../public/images/CAMILLE showcase.jpg" alt="" />
+                            <img className='rounded-3xl' src="https://k72.ca/images/teamMembers/CAMILLE_480X640_2.jpg?w=480&h=640&fit=crop&s=74317575b2d72fd11c5296615c383e4a" alt="" />
                         </div>
                     </div>
             </div>
