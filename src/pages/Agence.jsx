@@ -4,7 +4,7 @@ import AgenceTop from '../components/agence/agenceTop'
 import ContactBottom from '../components/contact/contactBottom'
 const Agence = () => {
     return(
-        <div>
+        <div className='overflow-x-hidden'>
             
             <div>
                 <AgenceTop/>

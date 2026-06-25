@@ -29,7 +29,7 @@ useEffect(() => {
 
 }, [])
   return (
-    <div>
+    <div className="overflow-x-hidden w-full">
       <Navbar />
       <FullScreenNav/>
       <Routes>

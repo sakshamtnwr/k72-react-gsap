@@ -36,14 +36,14 @@ useEffect(()=>{
 },[]);
     return (
         <div >
-            <div className='h-[60vh] w-full bg-black     overflow-hidden flex flex-col justify-center'>
-                <div ref={trackDirection} className='flex '>
+            <div className='h-[38vh] sm:h-[45vh] md:h-[55vh] lg:h-[60vh] w-full bg-black overflow-hidden flex flex-col justify-center'>
+                <div ref={trackDirection} className='flex'>
                 
-                <div className='moveX flex items-center bg-[#D3FD50] whitespace-nowrap'>
-                    <h1 className='font-[font2] uppercase pt-1 leading-[1.2] text-[10vw] text-center'>
+                <div className='moveX flex items-center bg-[#D3FD50] whitespace-nowrap py-2 sm:py-0'>
+                    <h1 className='font-[font2] uppercase pt-1 leading-[1.15] sm:leading-[1.2] text-[11vw] sm:text-[9vw] md:text-[8vw] text-center px-3 sm:px-2'>
                         bonjour@k72.ca
                     </h1>
-                    <div className='w-30'>
+                    <div className='w-16 sm:w-24 md:w-30 shrink-0'>
                         <svg viewBox="-1.6 -1.6 19.20 19.20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
                         <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
@@ -56,11 +56,11 @@ useEffect(()=>{
                         </svg>                    
                     </div>
                 </div>
-                <div className='moveX flex items-center bg-[#D3FD50] whitespace-nowrap'>
-                    <h1 className='font-[font2] uppercase pt-1 leading-[1.2] text-[10vw] text-center'>
+                <div className='moveX flex items-center bg-[#D3FD50] whitespace-nowrap py-2 sm:py-0'>
+                    <h1 className='font-[font2] uppercase pt-1 leading-[1.15] sm:leading-[1.2] text-[11vw] sm:text-[9vw] md:text-[8vw] text-center px-3 sm:px-2'>
                         bonjour@k72.ca
                     </h1>
-                    <div className='w-30'>
+                    <div className='w-16 sm:w-24 md:w-30 shrink-0'>
                         <svg viewBox="-1.6 -1.6 19.20 19.20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
                         <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>

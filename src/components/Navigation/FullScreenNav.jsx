@@ -1,9 +1,8 @@
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
-import React, { useContext, useRef, useState } from 'react';
+import React, { useContext, useRef } from 'react';
 import { NavbarContext } from '../../context/NavContext';
 import { Link } from 'react-router-dom';
-import Contact from '../../pages/Contact';
 
 const FullScreenNav = () => {
     
@@ -76,7 +75,7 @@ const FullScreenNav = () => {
 
   },[navOpen])
     return (
-        <div ref={fullScreenRef} id='fullscreennav' className='fullscreennav h-screen overflow-hidden text-white w-full z-50 absolute'>
+        <div ref={fullScreenRef} id='fullscreennav' className='fullscreennav h-screen overflow-hidden text-white w-full z-50 absolute hidden'>
             <div className='h-screen w-full fixed'> 
                 <div className='h-full w-full flex'> 
                 <div className='stairing h-full w-1/5 bg-black'> </div>
@@ -86,10 +85,10 @@ const FullScreenNav = () => {
                 <div className='stairing h-full w-1/5 bg-black'> </div>
                 </div> 
             </div>
-            <div ref={fullNavLinksRef} className='relative'>
-                <div className='navlink flex w-full justify-between items-start p-5'>
+            <div ref={fullNavLinksRef} className='relative overflow-x-hidden'>
+                <div className='navlink opacity-0 flex w-full justify-between items-center p-4 sm:p-5'>
                 <div className='k72'>
-                <div className='w-30'>
+                <div className='w-[4.5rem] sm:w-20 md:w-24 lg:w-30'>
                 <svg className='w-full' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 103 44">
                       <path fill='white' fillRule="evenodd" d="M35.1441047,8.4486911 L58.6905011,8.4486911 L58.6905011,-1.3094819e-14 L35.1441047,-1.3094819e-14 L35.1441047,8.4486911 Z M20.0019577,0.000230366492 L8.83414254,25.3433089 L18.4876971,25.3433089 L29.5733875,0.000230366492 L20.0019577,0.000230366492 Z M72.5255345,0.000691099476 L72.5255345,8.44846073 L94.3991559,8.44846073 L94.3991559,16.8932356 L72.5275991,16.8932356 L72.5275991,19.5237906 L72.5255345,19.5237906 L72.5255345,43.9274346 L102.80937,43.9274346 L102.80937,35.4798953 L80.9357483,35.4798953 L80.9357483,25.3437696 L94.3996147,25.3428482 L94.3996147,16.8953089 L102.80937,16.8953089 L102.80937,0.000691099476 L72.5255345,0.000691099476 Z M-1.30398043e-14,43.9278953 L8.78642762,43.9278953 L8.78642762,0.0057591623 L-1.30398043e-14,0.0057591623 L-1.30398043e-14,43.9278953 Z M58.6849955,8.4486911 L43.1186904,43.9274346 L52.3166592,43.9274346 L67.9877996,8.4486911 L58.6849955,8.4486911 Z M18.4688864,25.3437696 L26.7045278,43.9278953 L36.2761871,43.9278953 L28.1676325,25.3375497 L18.4688864,25.3437696 Z"></path>
                 </svg>
@@ -99,84 +98,83 @@ const FullScreenNav = () => {
                 setNavOpen(false)
             }
             }
-            className='h-35 w-35 relative cursor-pointer'>
-                <div className='h-49 w-0.5 bg-[#D3FD50] absolute -rotate-45 origin-top'></div>
-                <div className='h-49 w-0.5 right-0 bg-[#D3FD50] absolute rotate-45 origin-top'></div>
-                
+            className='relative h-11 w-11 sm:h-14 sm:w-14 md:h-20 md:w-20 cursor-pointer shrink-0 flex items-center justify-center'>
+                <span className='absolute block h-0.5 w-6 sm:w-8 md:w-10 bg-[#D3FD50] rotate-45'></span>
+                <span className='absolute block h-0.5 w-6 sm:w-8 md:w-10 bg-[#D3FD50] -rotate-45'></span>
             </div>
             </div>
             <div id='all-links' >
-                <div id='link' className='link origin-top border-t-1 border-white relative'>
-                    <h1 className='font-[font2] text-[7vw] uppercase leading-[1] pt-2.5 text-center'>Projects</h1>
+                <div id='link' className='link opacity-0 origin-top border-t-1 border-white relative overflow-hidden py-1 sm:py-0'>
+                    <h1 className='font-[font2] text-[9vw] sm:text-[8vw] md:text-[7vw] uppercase leading-[1.05] py-2 sm:pt-2.5 text-center'>Projects</h1>
                     <Link onClick={()=> setNavOpen(false)} to='/projects'>
                     <div className='moveLink absolute top-0 flex bg-[#D3FD50] text-black'>
                         <div className='moveX flex items-center'> 
-                            <h2 className='font-[font2] text-[7vw] uppercase leading-[1] pt-2.5 text-center whitespace-nowrap'> Pour Tout Voir </h2> 
-                            <img className='h-20 shrink-0 w-50 object-cover rounded-full' src="https://k72.ca/images/caseStudies/PJC/Thumbnails/PJC_SiteK72_Thumbnail_640x290.jpg?w=640&h=290&s=ac50a70feaaa2601b3aacad544c6045b" alt="not found" />
-                            <h2 className='font-[font2] text-[7vw] uppercase leading-[1] pt-2.5 text-center whitespace-nowrap'> Pour Tout Voir </h2> 
-                            <img className='h-20 shrink-0 w-50 object-cover rounded-full' src="https://k72.ca/images/caseStudies/iA_BRAND/Thumbnail.png?w=640&h=290&s=755b635c06d126151d64017fa1042a7c" alt="not found" />
+                            <h2 className='font-[font2] text-[9vw] sm:text-[8vw] md:text-[7vw] uppercase leading-[1.05] py-2 sm:pt-2.5 text-center whitespace-nowrap'> Pour Tout Voir </h2> 
+                            <img className='h-10 w-24 sm:h-16 sm:w-40 md:h-20 md:w-50 shrink-0 object-cover rounded-full' src="https://k72.ca/images/caseStudies/PJC/Thumbnails/PJC_SiteK72_Thumbnail_640x290.jpg?w=640&h=290&s=ac50a70feaaa2601b3aacad544c6045b" alt="not found" />
+                            <h2 className='font-[font2] text-[9vw] sm:text-[8vw] md:text-[7vw] uppercase leading-[1.05] py-2 sm:pt-2.5 text-center whitespace-nowrap'> Pour Tout Voir </h2> 
+                            <img className='h-10 w-24 sm:h-16 sm:w-40 md:h-20 md:w-50 shrink-0 object-cover rounded-full' src="https://k72.ca/images/caseStudies/iA_BRAND/Thumbnail.png?w=640&h=290&s=755b635c06d126151d64017fa1042a7c" alt="not found" />
                         </div>
                         <div className='moveX flex items-center'> 
-                            <h2 className='font-[font2] text-[7vw] uppercase leading-[1] pt-2.5 text-center whitespace-nowrap'> Pour Tout Voir </h2> 
-                            <img className='h-20 shrink-0 w-50 object-cover rounded-full' src="https://k72.ca/images/caseStudies/PJC/Thumbnails/PJC_SiteK72_Thumbnail_640x290.jpg?w=640&h=290&s=ac50a70feaaa2601b3aacad544c6045b" alt="not found" />
-                            <h2 className='font-[font2] text-[7vw] uppercase leading-[1] pt-2.5 text-center whitespace-nowrap'> Pour Tout Voir </h2> 
-                            <img className='h-20 shrink-0 w-50 object-cover rounded-full' src="https://k72.ca/images/caseStudies/iA_BRAND/Thumbnail.png?w=640&h=290&s=755b635c06d126151d64017fa1042a7c" alt="not found" />
+                            <h2 className='font-[font2] text-[9vw] sm:text-[8vw] md:text-[7vw] uppercase leading-[1.05] py-2 sm:pt-2.5 text-center whitespace-nowrap'> Pour Tout Voir </h2> 
+                            <img className='h-10 w-24 sm:h-16 sm:w-40 md:h-20 md:w-50 shrink-0 object-cover rounded-full' src="https://k72.ca/images/caseStudies/PJC/Thumbnails/PJC_SiteK72_Thumbnail_640x290.jpg?w=640&h=290&s=ac50a70feaaa2601b3aacad544c6045b" alt="not found" />
+                            <h2 className='font-[font2] text-[9vw] sm:text-[8vw] md:text-[7vw] uppercase leading-[1.05] py-2 sm:pt-2.5 text-center whitespace-nowrap'> Pour Tout Voir </h2> 
+                            <img className='h-10 w-24 sm:h-16 sm:w-40 md:h-20 md:w-50 shrink-0 object-cover rounded-full' src="https://k72.ca/images/caseStudies/iA_BRAND/Thumbnail.png?w=640&h=290&s=755b635c06d126151d64017fa1042a7c" alt="not found" />
                         </div>
                     </div>
                     </Link>
                 </div>
-                <div id='link' className='link origin-top border-t-1 border-white relative'>
-                    <h1 className='font-[font2] text-[7vw] uppercase leading-[1] pt-2.5 text-center'>Agence</h1>
+                <div id='link' className='link opacity-0 origin-top border-t-1 border-white relative overflow-hidden py-1 sm:py-0'>
+                    <h1 className='font-[font2] text-[9vw] sm:text-[8vw] md:text-[7vw] uppercase leading-[1.05] py-2 sm:pt-2.5 text-center'>Agence</h1>
                     <Link onClick={()=> setNavOpen (false)} to='/agence'>
                     <div className='moveLink absolute top-0 flex bg-[#D3FD50] text-black'>
                         <div className='moveX flex items-center'> 
-                            <h2 className='font-[font2] text-[7vw] uppercase leading-[1] pt-2.5 text-center whitespace-nowrap'> Pour Tout Savoir </h2> 
-                            <img className='h-20 shrink-0 w-50 object-cover rounded-full' src="https://k72.ca/images/caseStudies/PJC/Thumbnails/PJC_SiteK72_Thumbnail_640x290.jpg?w=640&h=290&s=ac50a70feaaa2601b3aacad544c6045b" alt="not found" />
-                            <h2 className='font-[font2] text-[7vw] uppercase leading-[1] pt-2.5 text-center whitespace-nowrap'> Pour Tout Savoir </h2> 
-                            <img className='h-20 shrink-0 w-50 object-cover rounded-full' src="https://k72.ca/images/caseStudies/iA_BRAND/Thumbnail.png?w=640&h=290&s=755b635c06d126151d64017fa1042a7c" alt="not found" />
+                            <h2 className='font-[font2] text-[9vw] sm:text-[8vw] md:text-[7vw] uppercase leading-[1.05] py-2 sm:pt-2.5 text-center whitespace-nowrap'> Pour Tout Savoir </h2> 
+                            <img className='h-10 w-24 sm:h-16 sm:w-40 md:h-20 md:w-50 shrink-0 object-cover rounded-full' src="https://k72.ca/images/caseStudies/PJC/Thumbnails/PJC_SiteK72_Thumbnail_640x290.jpg?w=640&h=290&s=ac50a70feaaa2601b3aacad544c6045b" alt="not found" />
+                            <h2 className='font-[font2] text-[9vw] sm:text-[8vw] md:text-[7vw] uppercase leading-[1.05] py-2 sm:pt-2.5 text-center whitespace-nowrap'> Pour Tout Savoir </h2> 
+                            <img className='h-10 w-24 sm:h-16 sm:w-40 md:h-20 md:w-50 shrink-0 object-cover rounded-full' src="https://k72.ca/images/caseStudies/iA_BRAND/Thumbnail.png?w=640&h=290&s=755b635c06d126151d64017fa1042a7c" alt="not found" />
                         </div>
                         <div className='moveX flex items-center'> 
-                            <h2 className='font-[font2] text-[7vw] uppercase leading-[1] pt-2.5 text-center whitespace-nowrap'> Pour Tout Savoir </h2> 
-                            <img className='h-20 shrink-0 w-50 object-cover rounded-full' src="https://k72.ca/images/caseStudies/PJC/Thumbnails/PJC_SiteK72_Thumbnail_640x290.jpg?w=640&h=290&s=ac50a70feaaa2601b3aacad544c6045b" alt="not found" />
-                            <h2 className='font-[font2] text-[7vw] uppercase leading-[1] pt-2.5 text-center whitespace-nowrap'> Pour Tout Savoir </h2> 
-                            <img className='h-20 shrink-0 w-50 object-cover rounded-full' src="https://k72.ca/images/caseStudies/iA_BRAND/Thumbnail.png?w=640&h=290&s=755b635c06d126151d64017fa1042a7c" alt="not found" />
+                            <h2 className='font-[font2] text-[9vw] sm:text-[8vw] md:text-[7vw] uppercase leading-[1.05] py-2 sm:pt-2.5 text-center whitespace-nowrap'> Pour Tout Savoir </h2> 
+                            <img className='h-10 w-24 sm:h-16 sm:w-40 md:h-20 md:w-50 shrink-0 object-cover rounded-full' src="https://k72.ca/images/caseStudies/PJC/Thumbnails/PJC_SiteK72_Thumbnail_640x290.jpg?w=640&h=290&s=ac50a70feaaa2601b3aacad544c6045b" alt="not found" />
+                            <h2 className='font-[font2] text-[9vw] sm:text-[8vw] md:text-[7vw] uppercase leading-[1.05] py-2 sm:pt-2.5 text-center whitespace-nowrap'> Pour Tout Savoir </h2> 
+                            <img className='h-10 w-24 sm:h-16 sm:w-40 md:h-20 md:w-50 shrink-0 object-cover rounded-full' src="https://k72.ca/images/caseStudies/iA_BRAND/Thumbnail.png?w=640&h=290&s=755b635c06d126151d64017fa1042a7c" alt="not found" />
                         </div>
                     </div>
                     </Link>
                 </div>
-                <div id='link' className='link origin-top border-t-1 border-white relative'>
-                    <h1 className='font-[font2] text-[7vw] uppercase leading-[1] pt-2.5 text-center'>Contact</h1>
+                <div id='link' className='link opacity-0 origin-top border-t-1 border-white relative overflow-hidden py-1 sm:py-0'>
+                    <h1 className='font-[font2] text-[9vw] sm:text-[8vw] md:text-[7vw] uppercase leading-[1.05] py-2 sm:pt-2.5 text-center'>Contact</h1>
                     <Link onClick={()=> setNavOpen (false)} to='/contact'>
                     <div className='moveLink absolute top-0 flex bg-[#D3FD50] text-black'>
                         <div className='moveX flex items-center'> 
-                            <h2 className='font-[font2] text-[7vw] uppercase leading-[1] pt-2.5 text-center whitespace-nowrap'> Pour Envoyer Un Fax </h2> 
-                            <img className='h-20 shrink-0 w-50 object-cover rounded-full' src="https://k72.ca/images/caseStudies/PJC/Thumbnails/PJC_SiteK72_Thumbnail_640x290.jpg?w=640&h=290&s=ac50a70feaaa2601b3aacad544c6045b" alt="not found" />
-                            <h2 className='font-[font2] text-[7vw] uppercase leading-[1] pt-2.5 text-center whitespace-nowrap'> Pour Envoyer Un Fax </h2> 
-                            <img className='h-20 shrink-0 w-50 object-cover rounded-full' src="https://k72.ca/images/caseStudies/iA_BRAND/Thumbnail.png?w=640&h=290&s=755b635c06d126151d64017fa1042a7c" alt="not found" />
+                            <h2 className='font-[font2] text-[9vw] sm:text-[8vw] md:text-[7vw] uppercase leading-[1.05] py-2 sm:pt-2.5 text-center whitespace-nowrap'> Pour Envoyer Un Fax </h2> 
+                            <img className='h-10 w-24 sm:h-16 sm:w-40 md:h-20 md:w-50 shrink-0 object-cover rounded-full' src="https://k72.ca/images/caseStudies/PJC/Thumbnails/PJC_SiteK72_Thumbnail_640x290.jpg?w=640&h=290&s=ac50a70feaaa2601b3aacad544c6045b" alt="not found" />
+                            <h2 className='font-[font2] text-[9vw] sm:text-[8vw] md:text-[7vw] uppercase leading-[1.05] py-2 sm:pt-2.5 text-center whitespace-nowrap'> Pour Envoyer Un Fax </h2> 
+                            <img className='h-10 w-24 sm:h-16 sm:w-40 md:h-20 md:w-50 shrink-0 object-cover rounded-full' src="https://k72.ca/images/caseStudies/iA_BRAND/Thumbnail.png?w=640&h=290&s=755b635c06d126151d64017fa1042a7c" alt="not found" />
                         </div>
                         <div className='moveX flex items-center'> 
-                            <h2 className='font-[font2] text-[7vw] uppercase leading-[1] pt-2.5 text-center whitespace-nowrap'> Pour Envoyer Un Fax </h2> 
-                            <img className='h-20 shrink-0 w-50 object-cover rounded-full' src="https://k72.ca/images/caseStudies/PJC/Thumbnails/PJC_SiteK72_Thumbnail_640x290.jpg?w=640&h=290&s=ac50a70feaaa2601b3aacad544c6045b" alt="not found" />
-                            <h2 className='font-[font2] text-[7vw] uppercase leading-[1] pt-2.5 text-center whitespace-nowrap'> Pour Envoyer Un Fax </h2> 
-                            <img className='h-20 shrink-0 w-50 object-cover rounded-full' src="https://k72.ca/images/caseStudies/iA_BRAND/Thumbnail.png?w=640&h=290&s=755b635c06d126151d64017fa1042a7c" alt="not found" />
+                            <h2 className='font-[font2] text-[9vw] sm:text-[8vw] md:text-[7vw] uppercase leading-[1.05] py-2 sm:pt-2.5 text-center whitespace-nowrap'> Pour Envoyer Un Fax </h2> 
+                            <img className='h-10 w-24 sm:h-16 sm:w-40 md:h-20 md:w-50 shrink-0 object-cover rounded-full' src="https://k72.ca/images/caseStudies/PJC/Thumbnails/PJC_SiteK72_Thumbnail_640x290.jpg?w=640&h=290&s=ac50a70feaaa2601b3aacad544c6045b" alt="not found" />
+                            <h2 className='font-[font2] text-[9vw] sm:text-[8vw] md:text-[7vw] uppercase leading-[1.05] py-2 sm:pt-2.5 text-center whitespace-nowrap'> Pour Envoyer Un Fax </h2> 
+                            <img className='h-10 w-24 sm:h-16 sm:w-40 md:h-20 md:w-50 shrink-0 object-cover rounded-full' src="https://k72.ca/images/caseStudies/iA_BRAND/Thumbnail.png?w=640&h=290&s=755b635c06d126151d64017fa1042a7c" alt="not found" />
                         </div>
                     </div>
                     </Link>
                 </div>
-                <div id='link' className='link origin-top border-y-1 border-white relative'>
-                    <h1 className='font-[font2] text-[7vw] uppercase leading-[1] pt-2.5 text-center'>Blogue</h1>
+                <div id='link' className='link opacity-0 origin-top border-y-1 border-white relative overflow-hidden py-1 sm:py-0'>
+                    <h1 className='font-[font2] text-[9vw] sm:text-[8vw] md:text-[7vw] uppercase leading-[1.05] py-2 sm:pt-2.5 text-center'>Blogue</h1>
                     <div className='moveLink absolute top-0 flex bg-[#D3FD50] text-black'>
                         <div className='moveX flex items-center'> 
-                            <h2 className='font-[font2] text-[7vw] uppercase leading-[1] pt-2.5 text-center whitespace-nowrap'> Lire Les Articles </h2> 
-                            <img className='h-20 shrink-0 w-50 object-cover rounded-full' src="https://k72.ca/images/caseStudies/PJC/Thumbnails/PJC_SiteK72_Thumbnail_640x290.jpg?w=640&h=290&s=ac50a70feaaa2601b3aacad544c6045b" alt="not found" />
-                            <h2 className='font-[font2] text-[7vw] uppercase leading-[1] pt-2.5 text-center whitespace-nowrap'> Lire Les Articles </h2> 
-                            <img className='h-20 shrink-0 w-50 object-cover rounded-full' src="https://k72.ca/images/caseStudies/iA_BRAND/Thumbnail.png?w=640&h=290&s=755b635c06d126151d64017fa1042a7c" alt="not found" />
+                            <h2 className='font-[font2] text-[9vw] sm:text-[8vw] md:text-[7vw] uppercase leading-[1.05] py-2 sm:pt-2.5 text-center whitespace-nowrap'> Lire Les Articles </h2> 
+                            <img className='h-10 w-24 sm:h-16 sm:w-40 md:h-20 md:w-50 shrink-0 object-cover rounded-full' src="https://k72.ca/images/caseStudies/PJC/Thumbnails/PJC_SiteK72_Thumbnail_640x290.jpg?w=640&h=290&s=ac50a70feaaa2601b3aacad544c6045b" alt="not found" />
+                            <h2 className='font-[font2] text-[9vw] sm:text-[8vw] md:text-[7vw] uppercase leading-[1.05] py-2 sm:pt-2.5 text-center whitespace-nowrap'> Lire Les Articles </h2> 
+                            <img className='h-10 w-24 sm:h-16 sm:w-40 md:h-20 md:w-50 shrink-0 object-cover rounded-full' src="https://k72.ca/images/caseStudies/iA_BRAND/Thumbnail.png?w=640&h=290&s=755b635c06d126151d64017fa1042a7c" alt="not found" />
                         </div>
                         <div className='moveX flex items-center'> 
-                            <h2 className='font-[font2] text-[7vw] uppercase leading-[1] pt-2.5 text-center whitespace-nowrap'> Lire Les Articles </h2> 
-                            <img className='h-20 shrink-0 w-50 object-cover rounded-full' src="https://k72.ca/images/caseStudies/PJC/Thumbnails/PJC_SiteK72_Thumbnail_640x290.jpg?w=640&h=290&s=ac50a70feaaa2601b3aacad544c6045b" alt="not found" />
-                            <h2 className='font-[font2] text-[7vw] uppercase leading-[1] pt-2.5 text-center whitespace-nowrap'> Lire Les Articles </h2> 
-                            <img className='h-20 shrink-0 w-50 object-cover rounded-full' src="https://k72.ca/images/caseStudies/iA_BRAND/Thumbnail.png?w=640&h=290&s=755b635c06d126151d64017fa1042a7c" alt="not found" />
+                            <h2 className='font-[font2] text-[9vw] sm:text-[8vw] md:text-[7vw] uppercase leading-[1.05] py-2 sm:pt-2.5 text-center whitespace-nowrap'> Lire Les Articles </h2> 
+                            <img className='h-10 w-24 sm:h-16 sm:w-40 md:h-20 md:w-50 shrink-0 object-cover rounded-full' src="https://k72.ca/images/caseStudies/PJC/Thumbnails/PJC_SiteK72_Thumbnail_640x290.jpg?w=640&h=290&s=ac50a70feaaa2601b3aacad544c6045b" alt="not found" />
+                            <h2 className='font-[font2] text-[9vw] sm:text-[8vw] md:text-[7vw] uppercase leading-[1.05] py-2 sm:pt-2.5 text-center whitespace-nowrap'> Lire Les Articles </h2> 
+                            <img className='h-10 w-24 sm:h-16 sm:w-40 md:h-20 md:w-50 shrink-0 object-cover rounded-full' src="https://k72.ca/images/caseStudies/iA_BRAND/Thumbnail.png?w=640&h=290&s=755b635c06d126151d64017fa1042a7c" alt="not found" />
                         </div>
                     </div>
                 </div>

@@ -27,21 +27,31 @@ useEffect(() => {
 
     heros.forEach((hero, index) => {
       const nextHero = heros[index + 1];
+      const fullHeight = hero.parentElement.offsetHeight;
+      const isCompact = window.innerWidth < 1024;
+      const peekHeight = window.innerWidth < 640 ? 24 : window.innerWidth < 1024 ? 32 : 40;
+
+      if (isCompact && index === 0) {
+        gsap.set(hero, { height: fullHeight });
+        return;
+      }
+
+      const start = isCompact ? 'top 85%' : 'top 80%';
 
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: hero,
-          start: 'top 80%',
-          end: '+=400',
+          start,
+          end: isCompact ? '+=300' : '+=400',
           scrub: 1,
         
         }
       });
 
-      tl.fromTo(hero, { height: 0 }, { height: 400, duration: 0.7 });
+      tl.fromTo(hero, { height: 0 }, { height: fullHeight, duration: 0.7 });
 
       if (nextHero) {
-        tl.fromTo(nextHero, { height: 0 }, { height: 40, duration: 0.3 }, "<");
+        tl.fromTo(nextHero, { height: 0 }, { height: peekHeight, duration: 0.3 }, "<");
       }
     });
 
@@ -64,14 +74,14 @@ useEffect(() => {
         {image1:'https://k72.ca/images/caseStudies/LAMAJEURE_-_Son_sur_mesure/chalaxeur-thumbnail_img.jpg?w=1280&h=960&s=1d30e394b903c242ad9a4f2cb2463cda',image2:'https://k72.ca/images/caseStudies/BAnQ_100TEMPS/100temps_Thumbnail.jpg?w=1280&h=960&s=5c944bb014f8643227ad7bb117fccc14'},
         {image1:'https://k72.ca/images/caseStudies/CRISIS24/crisis24_behance_1920X1200_cartes.jpg?w=1280&h=960&s=bb42c9de87442e1bffc542c332e07124',image2:'https://k72.ca/images/caseStudies/Opto/thumbnailimage_opto.jpg?w=1280&h=960&s=938f0bfb3de1ff2a2846b884eec2d757'},]
     return (
-        <div className='p-4'>
-            <div className=' pt-[40vh]'>
-                <h2 className='font-[font2] text-[9.5vw] uppercase'>Projects</h2>
+        <div className='px-4 sm:px-6 md:px-8 lg:px-4 pb-8 sm:pb-10 overflow-x-hidden'>
+            <div className='pt-[20vh] sm:pt-[26vh] md:pt-[32vh] lg:pt-[40vh]'>
+                <h2 className='font-[font2] text-[11vw] sm:text-[10vw] md:text-[9.5vw] uppercase leading-none'>Projects</h2>
             </div>
-            <div className='-mt-10 hero-parent'> 
+            <div className='mt-6 sm:mt-8 md:mt-10 lg:-mt-10 hero-parent'> 
                 {projects.map(function(elem, idx){
-                    return <div key={idx} className='w-full h-[400px] mb-4'>
-                        <div className='hero w-full h-[400px] flex gap-3'>
+                    return <div key={idx} className='w-full h-[240px] sm:h-[300px] md:h-[360px] lg:h-[400px] mb-4 sm:mb-5 md:mb-4'>
+                        <div className='hero w-full h-full flex flex-col sm:flex-row gap-2 sm:gap-3'>
                         <ProjectCards image1={elem.image1} image2={elem.image2} />
                         </div>
                     </div>
